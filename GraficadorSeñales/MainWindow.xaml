@@ -20,7 +20,9 @@
         <TextBox x:Name="textBox_Copy4" HorizontalAlignment="Left" Height="23" Margin="182,132,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="182,111,0,0" TextWrapping="Wrap" Text="Frecuencia de muestreo:" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="Graficar" HorizontalAlignment="Left" Margin="346,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="252" Margin="10,157,0,0" VerticalAlignment="Top" Width="772"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="252" Margin="10,157,0,0" VerticalAlignment="Top" Width="772" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+            <Polyline Stroke="Black" StrokeThickness="2" Name="plnGrafica"/>
+        </ScrollViewer>
 
     </Grid>
 </Window>
