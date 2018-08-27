@@ -53,12 +53,31 @@ namespace GraficadorSeñales
                 i <= tiempoFinal; 
                 i += periodoMuestreo )
             {
+                double valorMuestra =
+                    señal.evaluar(i);
+
+                if (Math.Abs(valorMuestra) > 
+                    señal.AmplitudMaxima)
+                {
+                    señal.AmplitudMaxima =
+                        Math.Abs(valorMuestra);
+                }
+
+                señal.Muestras.Add(
+                    new Muestra(i, valorMuestra));
+ 
+            }
+
+            //Recorrer una coleccion o arreglo
+            foreach(Muestra muestra in señal.Muestras)
+            {
                 plnGrafica.Points.Add(
-                    new Point(i * scrContenedor.Width
-                    ,(señal.evaluar(i) * ((scrContenedor.Height / 2.0) - 30) * -1) 
+                    new Point(muestra.X * scrContenedor.Width
+                    , (muestra.Y * ((scrContenedor.Height / 2.0) - 30) * -1)
                     + (scrContenedor.Height / 2))
                     );
             }
+
         }
     }
 }
