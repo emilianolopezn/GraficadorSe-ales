@@ -49,9 +49,7 @@ namespace GraficadorSeñales
 
             plnGrafica.Points.Clear();
 
-            for(double i = tiempoInicial; 
-                i <= tiempoFinal; 
-                i += periodoMuestreo )
+            for(double i = tiempoInicial;  i <= tiempoFinal;  i += periodoMuestreo )
             {
                 double valorMuestra =
                     señal.evaluar(i);
@@ -78,6 +76,51 @@ namespace GraficadorSeñales
                     );
             }
 
+        }
+
+        private void btnGraficarRampa_Click(object sender, RoutedEventArgs e)
+        {
+            
+            double tiempoInicial =
+                double.Parse(txtTiempoInicial.Text);
+            double tiempoFinal =
+                double.Parse(txtTiempoFinal.Text);
+            double frecuenciaMuestreo =
+                double.Parse(txtFrecuenciaMuestreo.Text);
+
+            SeñalRampa señal =
+                new SeñalRampa();
+
+            double periodoMuestreo = 1 / frecuenciaMuestreo;
+
+            plnGrafica.Points.Clear();
+
+            for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestreo)
+            {
+                double valorMuestra =
+                    señal.evaluar(i);
+
+                if (Math.Abs(valorMuestra) >
+                    señal.AmplitudMaxima)
+                {
+                    señal.AmplitudMaxima =
+                        Math.Abs(valorMuestra);
+                }
+
+                señal.Muestras.Add(
+                    new Muestra(i, valorMuestra));
+
+            }
+
+            //Recorrer una coleccion o arreglo
+            foreach (Muestra muestra in señal.Muestras)
+            {
+                plnGrafica.Points.Add(
+                    new Point(muestra.X * scrContenedor.Width
+                    , (muestra.Y * ((scrContenedor.Height / 2.0) - 30) * -1)
+                    + (scrContenedor.Height / 2))
+                    );
+            }
         }
     }
 }
