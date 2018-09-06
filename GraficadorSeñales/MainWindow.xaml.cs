@@ -70,11 +70,35 @@ namespace GraficadorSeñales
             foreach(Muestra muestra in señal.Muestras)
             {
                 plnGrafica.Points.Add(
-                    new Point(muestra.X * scrContenedor.Width
+                    new Point((muestra.X - tiempoInicial) * scrContenedor.Width
                     , (muestra.Y / señal.AmplitudMaxima * ((scrContenedor.Height / 2.0) - 30) * -1)
                     + (scrContenedor.Height / 2) )
                     );
             }
+            plnEjeX.Points.Clear();
+            //Punto del principio
+            plnEjeX.Points.Add(
+                new Point(0,                          //Coordenada X punto inicial
+                (scrContenedor.Height / 2)));         //Coordenada Y punto inicial
+            //Punto del fin
+            plnEjeX.Points.Add(
+                new Point((tiempoFinal - tiempoInicial) * scrContenedor.Width,
+                     // x final
+                 (scrContenedor.Height / 2)));                         // y final
+
+            plnEjeY.Points.Clear();
+            //Punto del principio
+            plnEjeY.Points.Add(
+                new Point((0 - tiempoInicial) * scrContenedor.Width,  //Coordenada X punto inicial
+
+                (                //Coordenada Y punto inicial
+                ((scrContenedor.Height / 2.0) - 30) * -1)
+                    + (scrContenedor.Height / 2)));         
+            //Punto del fin
+            plnEjeY.Points.Add(
+                new Point((0 - tiempoInicial) * scrContenedor.Width,  //x final
+                (-1 * ((scrContenedor.Height / 2.0) - 30) * -1) //y final
+                    + (scrContenedor.Height / 2)));
 
             lblAmplitudMaximaY.Text =
                 señal.AmplitudMaxima.ToString();

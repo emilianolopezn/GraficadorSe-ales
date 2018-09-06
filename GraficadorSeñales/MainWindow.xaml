@@ -21,7 +21,11 @@
         <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="182,111,0,0" TextWrapping="Wrap" Text="Frecuencia de muestreo:" VerticalAlignment="Top"/>
         <Button x:Name="btnGraficar" Content="Graficar Señal Senoidal" HorizontalAlignment="Left" Margin="346,30,0,0" VerticalAlignment="Top" Width="195" Click="btnGraficar_Click" />
         <ScrollViewer x:Name="scrContenedor" HorizontalAlignment="Left" Height="252" Margin="97,157,0,0" VerticalAlignment="Top" Width="685" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
-            <Polyline Stroke="Black" StrokeThickness="2" Name="plnGrafica"/>
+            <Grid>
+                <Polyline Stroke="CornflowerBlue" StrokeThickness="2" Name="plnGrafica"/>
+                <Polyline Stroke="Black" StrokeThickness="0.5" Name="plnEjeX" />
+                <Polyline Stroke="Black" StrokeThickness="0.5" Name="plnEjeY" />
+            </Grid>
         </ScrollViewer>
         <Button x:Name="btnGraficarRampa" Content="Graficar Señal Rampa" HorizontalAlignment="Left" Margin="346,65,0,0" VerticalAlignment="Top" Width="195" RenderTransformOrigin="-0.045,0.07" Click="btnGraficarRampa_Click"/>
         <TextBlock x:Name="lblAmplitudMaximaY" HorizontalAlignment="Left" Margin="12,157,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" FontSize="22"/>
