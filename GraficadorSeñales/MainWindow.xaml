@@ -40,7 +40,6 @@
         <CheckBox x:Name="cbEscalar" Content="" HorizontalAlignment="Left" Margin="388,30,0,0" VerticalAlignment="Top" Click="cbEscalar_Click"/>
         <CheckBox x:Name="cbDesplazar" Content="" HorizontalAlignment="Left" Margin="388,82,0,0" VerticalAlignment="Top" Click="cbDesplazar_Click"/>
         <CheckBox x:Name="cbTruncar" Content="" HorizontalAlignment="Left" Margin="388,131,0,0" VerticalAlignment="Top" Click="cbTruncar_Click"/>
-        <TextBox x:Name="txtDelay" HorizontalAlignment="Left" Height="23" Margin="256,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="1"/>
 
 
     </Grid>

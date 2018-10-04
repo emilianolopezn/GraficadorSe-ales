@@ -81,18 +81,6 @@ namespace GraficadorSeñales
             }
         }
 
-        public void delay(float segundos)
-        {
-            int cont = 0;
-            foreach (Muestra muestra in Muestras)
-            {
-                int offsetMuestras =  (int)(segundos * FrecuenciaMuestreo) + cont;
-                if (offsetMuestras >= 0 && offsetMuestras < Muestras.Count)
-                {
-                    muestra.Y += Muestras[offsetMuestras].Y; 
-                }
-                cont++;
-            }
-        }
+    
     }
 }
