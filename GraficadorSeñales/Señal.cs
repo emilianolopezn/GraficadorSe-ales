@@ -37,5 +37,62 @@ namespace GraficadorSeñales
 
             }
         }
+
+        public void actualizarAmplitudMaxima()
+        {
+            AmplitudMaxima = 1;
+            foreach (Muestra muestra in Muestras)
+            {
+                if (Math.Abs(muestra.Y) > AmplitudMaxima)
+                {
+                   AmplitudMaxima = Math.Abs(muestra.Y);
+                }
+                
+            }
+        }
+
+        public void desplazar(float magnitudDesplazamiento)
+        {
+            foreach (Muestra muestra in Muestras)
+            {
+                muestra.Y += magnitudDesplazamiento;
+            }
+        }
+
+        public void escalar(float factorEscala)
+        {
+            foreach (Muestra muestra in Muestras)
+            {
+                muestra.Y *= factorEscala;
+            }
+        }
+
+        public void truncar(float umbral)
+        {
+            foreach(Muestra muestra in Muestras)
+            {
+                if (muestra.Y > umbral)
+                {
+                    muestra.Y = umbral;
+                } else if (muestra.Y < -umbral)
+                {
+                    muestra.Y = -umbral;
+                }
+            }
+        }
+
+        public void delay(float segundos)
+        {
+            int cont = 0;
+            foreach (Muestra muestra in Muestras)
+            {
+                int offsetMuestras =  (int)(segundos * FrecuenciaMuestreo) + cont;
+                if (offsetMuestras >= 0 && offsetMuestras < Muestras.Count)
+                {
+                    muestra.Y += Muestras[offsetMuestras].Y; 
+                }
+                cont++;
+            }
+        }
     }
 }

@@ -77,6 +77,15 @@ namespace GraficadorSeñales
             señal.FrecuenciaMuestreo = frecuenciaMuestreo;
 
             señal.construirSeñalDigital();
+            if ((bool)cbEscalar.IsChecked)
+                señal.escalar(float.Parse(txtFactorEscala.Text));
+            if ((bool)cbDesplazar.IsChecked)
+                señal.desplazar(float.Parse(txtMagnitudDesplazamiento.Text));
+            if ((bool)cbTruncar.IsChecked)
+                señal.truncar(float.Parse(txtUmbral.Text));
+         //   señal.delay(float.Parse(txtDelay.Text));
+
+            señal.actualizarAmplitudMaxima();
 
             plnGrafica.Points.Clear();
 
@@ -192,6 +201,21 @@ namespace GraficadorSeñales
                 default:
                     break;
             }
+        }
+
+        private void cbEscalar_Click(object sender, RoutedEventArgs e)
+        {
+            txtFactorEscala.IsEnabled = (bool)cbEscalar.IsChecked;
+        }
+
+        private void cbDesplazar_Click(object sender, RoutedEventArgs e)
+        {
+            txtMagnitudDesplazamiento.IsEnabled = (bool)cbDesplazar.IsChecked;
+        }
+
+        private void cbTruncar_Click(object sender, RoutedEventArgs e)
+        {
+            txtUmbral.IsEnabled = (bool)cbTruncar.IsChecked;
         }
     }
 }
