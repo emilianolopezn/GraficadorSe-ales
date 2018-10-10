@@ -101,9 +101,9 @@ namespace GraficadorSeñales
                 }
 
                 lblAmplitudMaximaY.Text =
-                señal.AmplitudMaxima.ToString();
+                señal.AmplitudMaxima.ToString("F");
                 lblAmplitudMaximaNegativaY.Text =
-                    "-" + señal.AmplitudMaxima.ToString();
+                    "-" + señal.AmplitudMaxima.ToString("F");
             }
             
             plnEjeX.Points.Clear();
@@ -172,6 +172,11 @@ namespace GraficadorSeñales
         private void cbTruncar_Click(object sender, RoutedEventArgs e)
         {
             txtUmbral.IsEnabled = (bool)cbTruncar.IsChecked;
+        }
+
+        private void cbTipoSeñal_SegundaSeñal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
