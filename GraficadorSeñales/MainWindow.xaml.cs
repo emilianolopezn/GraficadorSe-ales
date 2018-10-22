@@ -22,6 +22,9 @@ namespace GraficadorSeñales
     {
 
         double amplitudMaxima = 1;
+        Señal señal;
+        Señal segundaSeñal;
+        Señal señalResultado;
 
         public MainWindow()
         {
@@ -43,8 +46,7 @@ namespace GraficadorSeñales
             double frecuenciaMuestreo =
                 double.Parse(txtFrecuenciaMuestreo.Text);
 
-            Señal señal;
-            Señal segundaSeñal;
+            
 
             switch (cbTipoSeñal.SelectedIndex)
             {
@@ -273,6 +275,72 @@ namespace GraficadorSeñales
                 default:
                     break;
             }
+        }
+
+        private void btnRealizarOperacion_Click(object sender, RoutedEventArgs e)
+        {
+            señalResultado = null;
+            switch(cbTipoOperacion.SelectedIndex)
+            {
+                case 0: //Suma
+                    señalResultado =
+                        Señal.sumar(señal, segundaSeñal);
+                    break;
+                case 1: //Multiplicacion
+                    break;
+                default:
+                    break;
+            }
+
+            señalResultado.actualizarAmplitudMaxima();
+
+            plnGraficaResultado.Points.Clear();
+
+            lblAmplitudMaximaY_Resultado.Text =
+               señalResultado.AmplitudMaxima.ToString("F");
+            lblAmplitudMaximaNegativaY_Resultado.Text =
+                "-" + señalResultado.AmplitudMaxima.ToString("F");
+
+            if (señalResultado != null)
+            {
+                //Recorrer una coleccion o arreglo
+                foreach (Muestra muestra in señalResultado.Muestras)
+                {
+                    plnGraficaResultado.Points.Add(
+                        new Point((muestra.X - señalResultado.TiempoInicial) * scrContenedor_Resultado.Width
+                        , (muestra.Y / señalResultado.AmplitudMaxima * ((scrContenedor_Resultado.Height / 2.0) - 30) * -1)
+                        + (scrContenedor_Resultado.Height / 2))
+                        );
+                }
+
+            }
+           
+            plnEjeXResultado.Points.Clear();
+            //Punto del principio
+            plnEjeXResultado.Points.Add(
+                new Point(0,                          //Coordenada X punto inicial
+                (scrContenedor_Resultado.Height / 2)));         //Coordenada Y punto inicial
+            //Punto del fin
+            plnEjeXResultado.Points.Add(
+                new Point((señalResultado.TiempoFinal - señalResultado.TiempoInicial) 
+                * scrContenedor_Resultado.Width,
+                 // x final
+                 (scrContenedor_Resultado.Height / 2)));                         // y final
+
+            plnEjeYResultado.Points.Clear();
+            //Punto del principio
+            plnEjeYResultado.Points.Add(
+                new Point((0 - señalResultado.TiempoInicial) * scrContenedor_Resultado.Width,  //Coordenada X punto inicial
+
+                (                //Coordenada Y punto inicial
+                ((scrContenedor_Resultado.Height / 2.0) - 30) * -1)
+                    + (scrContenedor_Resultado.Height / 2)));
+            //Punto del fin
+            plnEjeY.Points.Add(
+                new Point((0 - señalResultado.TiempoFinal) * scrContenedor_Resultado.Width,  //x final
+                (-1 * ((scrContenedor_Resultado.Height / 2.0) - 30) * -1) //y final
+                    + (scrContenedor_Resultado.Height / 2)));
+
         }
     }
 }

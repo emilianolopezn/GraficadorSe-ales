@@ -65,15 +65,15 @@
                 <Polyline Stroke="Black" StrokeThickness="0.5" x:Name="plnEjeYResultado" />
             </Grid>
         </ScrollViewer>
-        <TextBlock x:Name="lblAmplitudMaximaY_Copy" HorizontalAlignment="Left" Margin="12,605,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" FontSize="22"/>
-        <TextBlock x:Name="lblAmplitudMaximaNegativaY_Copy" HorizontalAlignment="Left" Margin="10,813,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" FontSize="22"/>
+        <TextBlock x:Name="lblAmplitudMaximaY_Resultado" HorizontalAlignment="Left" Margin="12,605,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" FontSize="22"/>
+        <TextBlock x:Name="lblAmplitudMaximaNegativaY_Resultado" HorizontalAlignment="Left" Margin="10,813,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" FontSize="22"/>
         <TextBlock x:Name="lblAmplitudCero_Copy" HorizontalAlignment="Left" Margin="10,719,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" FontSize="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="800,185,0,0" TextWrapping="Wrap" Text="Operación:" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbTipoOperacion" HorizontalAlignment="Left" Margin="800,206,0,0" VerticalAlignment="Top" Width="129">
             <ComboBoxItem>Suma</ComboBoxItem>
             <ComboBoxItem>Multiplicación</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnRealizarOperacion" Content="Realizar Operación" HorizontalAlignment="Left" Margin="800,233,0,0" VerticalAlignment="Top" Width="129"/>
+        <Button x:Name="btnRealizarOperacion" Content="Realizar Operación" HorizontalAlignment="Left" Margin="800,233,0,0" VerticalAlignment="Top" Width="129" Click="btnRealizarOperacion_Click"/>
 
 
     </Grid>
