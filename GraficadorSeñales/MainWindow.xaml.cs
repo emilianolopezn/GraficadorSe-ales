@@ -75,6 +75,9 @@ namespace GraficadorSeñales
                     señal =
                         new SeñalExponencial(alpha);
                     break;
+                case 3:
+                    señal = new SeñalRectangular();
+                    break;
                 default:
                     señal = null;
                     break;
@@ -107,6 +110,9 @@ namespace GraficadorSeñales
                         ((ConfiguracionSeñalExponencial)panelConfiguracion_SegundaSeñal.Children[0]).txtAlpha.Text);
                     segundaSeñal =
                         new SeñalExponencial(alpha);
+                    break;
+                case 3:
+                    segundaSeñal = new SeñalRectangular();
                     break;
                 default:
                     segundaSeñal = null;
@@ -234,6 +240,8 @@ namespace GraficadorSeñales
                         new ConfiguracionSeñalExponencial()
                         );
                     break;
+                case 3:
+                    break;
                 default:
                     break;
             }
@@ -271,6 +279,8 @@ namespace GraficadorSeñales
                     panelConfiguracion_SegundaSeñal.
                         Children.Add(
                         new ConfiguracionSeñalExponencial());
+                    break;
+                case 3:
                     break;
                 default:
                     break;
@@ -340,8 +350,8 @@ namespace GraficadorSeñales
                 ((scrContenedor_Resultado.Height / 2.0) - 30) * -1)
                     + (scrContenedor_Resultado.Height / 2)));
             //Punto del fin
-            plnEjeY.Points.Add(
-                new Point((0 - señalResultado.TiempoFinal) * scrContenedor_Resultado.Width,  //x final
+            plnEjeYResultado.Points.Add(
+                new Point((0 - señalResultado.TiempoInicial) * scrContenedor_Resultado.Width,  //x final
                 (-1 * ((scrContenedor_Resultado.Height / 2.0) - 30) * -1) //y final
                     + (scrContenedor_Resultado.Height / 2)));
 

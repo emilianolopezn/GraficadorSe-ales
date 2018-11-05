@@ -30,6 +30,7 @@
             <ComboBoxItem>Señal Senoidal</ComboBoxItem>
             <ComboBoxItem>Señal Rampa</ComboBoxItem>
             <ComboBoxItem>Señal Exponencial</ComboBoxItem>
+            <ComboBoxItem>Señal Rectangular</ComboBoxItem>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Tipo de señal:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="222,110,0,0" TextWrapping="Wrap" Text="Truncar:" VerticalAlignment="Top"/>
@@ -46,6 +47,7 @@
             <ComboBoxItem Content="Señal Senoidal"/>
             <ComboBoxItem Content="Señal Rampa"/>
             <ComboBoxItem Content="Señal Exponencial"/>
+            <ComboBoxItem Content="Señal Rectangular"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="426,10,0,0" TextWrapping="Wrap" Text="Tipo de señal:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="638,110,0,0" TextWrapping="Wrap" Text="Truncar:" VerticalAlignment="Top"/>
